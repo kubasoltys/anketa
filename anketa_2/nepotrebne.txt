@@ -1,0 +1,20 @@
+fs.readFile('saved/responses.json', (err, data) => {
+        if (err) throw err;
+        let messages = JSON.parse(data);
+        messages.push(message);
+    })
+
+
+
+
+app.get('/saved', (req, res) => {
+    fs.readFile('saved/responses.json', (err, data) => {
+        if (err) {
+            res.send('Udělal si kritickou chybu - soubor nebyl načten')
+        }
+        if (data) {
+            const messages = JSON.parse(data);
+            res.render('responses', { zpravy: messages });
+        }
+    })
+})
