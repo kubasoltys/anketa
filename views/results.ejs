@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <title>Výsledky</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <header class="text-center bg-secondary p-5">
+        <h1 class="display-2 font-weight-bold">Školní anketa</h1>
+    </header>
+
+    <main>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Jméno</th>
+                <th>Oblíbený předmět</th>
+                <th>Oblíbený učitel</th>
+                <th>Rozdělení tříd</th>
+            </tr>
+            <tr>
+                <td><%= responses.ip %></td>
+                <td><%= responses.name %></td>
+                <td><%= responses.favouriteSubject %></td>
+                <td><%= responses.teacher %></td>
+                <td><%= responses.distribution %></td>
+            </tr>
+        </table>      
+    </main>
+
+    <footer class="container">
+        <div class="text-center p-3 mt-5">
+            <a href="/"><button class="btn btn-danger">Zpátky</button></a>
+        </div>
+        <div class="text-center text-secondary">
+            <p><img src="img/skola-logo.jpeg" class="skolaLogo" alt="Školní logo"></p>
+            <p>&#169; 2024 - Jakub Šoltys, IT2, SŠPU - Opava</p>
+        </div>
+    </footer>
+      
+</body>
+
+
+</html>
