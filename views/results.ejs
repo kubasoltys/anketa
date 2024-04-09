@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <title>Výsledky</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="text-center">
+    <header class="text-center bg-secondary p-5">
+      <h1 class="display-2 font-weight-bold">Školní anketa</h1>
+    </header>
+
+    <main>
+      <h1 class="display-4 mt-4">Výsledky</h1>
+      <table class="text-center container mt-5 table table-striped table-bordered table-hover">
+        <tr class="table-active">
+          <th scope="col">ID</th>
+          <th scope="col">Datum</th>
+          <th scope="col">Čas</th>
+          <th scope="col">Jméno</th>
+          <th scope="col">Oblíbený předmět</th>
+          <th scope="col">Oblíbený učitel</th>
+          <th scope="col">Rozdělení tříd</th>
+        </tr>
+        <% responses.forEach(function(response) {
+            const date = new Date(response.time);
+            const dateString = `${('0' + date.getDate()).slice(-2)}.${('0' + (date.getMonth() + 1)).slice(-2)}.${date.getFullYear()}`;
+            const timeString = `${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}`;
+        %>
+        <tr scope="row">
+          <td><%= response.ip %></td>
+          <td><%= dateString %></td>
+          <td><%= timeString %></td>
+          <td><%= response.name %></td>
+          <td><%= response.favouriteSubject %></td>
+          <td><%= response.teacher %></td>
+          <td><%= response.distribution %></td>
+        </tr>
+        <% }); %>
+      </table>
+    </main>
+
+    <footer class="container">
+      <div class="text-center p-3 mt-5">
+        <a href="/"><button class="btn btn-danger">Zpátky</button></a>
+      </div>
+      <div class="text-center text-secondary">
+        <p>
+          <img src="img/skola-logo.jpeg" class="skolaLogo" alt="Školní logo" />
+        </p>
+        <p>&#169; 2024 - Jakub Šoltys, IT2, SŠPU - Opava</p>
+      </div>
+    </footer>
+  </body>
+</html>
